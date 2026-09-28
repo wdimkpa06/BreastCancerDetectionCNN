@@ -13,3 +13,5 @@ venv/
 # Model weights
 *.pt
 *.pth
+
+gradcam_selftest_*.png
