@@ -29,6 +29,10 @@
           <p class="label label-{{ result.resnet.label|lower }}">{{ result.resnet.label }}</p>
           <p class="confidence">{{ "%.1f"|format(result.resnet.confidence * 100) }}% confidence</p>
           <p class="accuracy">model test accuracy: {{ "%.1f"|format(result.resnet.reported_accuracy * 100) }}%</p>
+          {% if result.resnet.heatmap %}
+            <img class="heatmap" src="{{ result.resnet.heatmap }}"
+                alt="Grad-CAM heatmap showing regions that influenced the ResNet verdict">
+          {% endif %}
         </div>
 
         <div class="card">
@@ -36,6 +40,10 @@
           <p class="label label-{{ result.efficientnet.label|lower }}">{{ result.efficientnet.label }}</p>
           <p class="confidence">{{ "%.1f"|format(result.efficientnet.confidence * 100) }}% confidence</p>
           <p class="accuracy">model test accuracy: {{ "%.1f"|format(result.efficientnet.reported_accuracy * 100) }}%</p>
+          {% if result.efficientnet.heatmap %}
+            <img class="heatmap" src="{{ result.efficientnet.heatmap }}"
+                alt="Grad-CAM heatmap showing regions that influenced the EfficientNet verdict">
+          {% endif %}
         </div>
 
         <div class="card final">
